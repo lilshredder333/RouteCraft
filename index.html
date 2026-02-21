@@ -1,0 +1,49 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RouteCraft Pro MVP</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+    <div id="app">
+        <header class="header">
+            <h1>RouteCraft</h1>
+            <span class="subtitle">Smart Route Planner</span>
+        </header>
+
+        <main class="grid">
+            <section class="panel">
+                <h2>Añadir Lugar</h2>
+                <form id="place-form">
+                    <input id="name" placeholder="Nombre del lugar" required />
+                    <input id="lat" type="number" step="any" placeholder="Latitud" required />
+                    <input id="lng" type="number" step="any" placeholder="Longitud" required />
+                    <button type="submit">Añadir</button>
+                </form>
+            </section>
+
+            <section class="panel">
+                <div class="panel-header">
+                    <h2>Lugares</h2>
+                    <button id="clear-btn" class="danger">Limpiar</button>
+                </div>
+                <div id="places"></div>
+            </section>
+
+            <section class="panel">
+                <div class="panel-header">
+                    <h2>Ruta Optimizada</h2>
+                    <button id="generate-btn">Optimizar</button>
+                </div>
+                <div id="route"></div>
+                <div id="stats" class="stats"></div>
+            </section>
+        </main>
+    </div>
+
+<script type="module" src="app.js"></script>
+</body>
+</html>
