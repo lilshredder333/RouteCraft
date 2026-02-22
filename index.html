@@ -4,45 +4,55 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>RouteCraft Pro MVP</title>
-    <link rel="stylesheet" href="styles.css" />
+    <title>RouteCraft Collaborative</title>
+
+    <!-- Leaflet -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+    <!-- Marker Cluster -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster/dist/MarkerCluster.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster/dist/MarkerCluster.Default.css" />
+    <script src="https://unpkg.com/leaflet.markercluster/dist/leaflet.markercluster.js"></script>
+
+    <!-- SortableJS -->
+    <script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
+
+    <!-- Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js"></script>
+
+    <link rel="stylesheet" href="styles.css"/>
 </head>
 <body>
-    <div id="app">
-        <header class="header">
-            <h1>RouteCraft</h1>
-            <span class="subtitle">Smart Route Planner</span>
-        </header>
 
-        <main class="grid">
-            <section class="panel">
-                <h2>Añadir Lugar</h2>
-                <form id="place-form">
-                    <input id="name" placeholder="Nombre del lugar" required />
-                    <input id="lat" type="number" step="any" placeholder="Latitud" required />
-                    <input id="lng" type="number" step="any" placeholder="Longitud" required />
-                    <button type="submit">Añadir</button>
-                </form>
-            </section>
+<div id="app">
+    <header>
+        <h1>RouteCraft</h1>
+        <button id="new-trip-btn">+ Nuevo Viaje</button>
+    </header>
 
-            <section class="panel">
-                <div class="panel-header">
-                    <h2>Lugares</h2>
-                    <button id="clear-btn" class="danger">Limpiar</button>
-                </div>
-                <div id="places"></div>
-            </section>
+    <section class="panel">
+        <input id="trip-name" placeholder="Nombre del viaje"/>
+        <button id="create-trip-btn">Crear</button>
+        <select id="trip-select"></select>
+    </section>
 
-            <section class="panel">
-                <div class="panel-header">
-                    <h2>Ruta Optimizada</h2>
-                    <button id="generate-btn">Optimizar</button>
-                </div>
-                <div id="route"></div>
-                <div id="stats" class="stats"></div>
-            </section>
-        </main>
-    </div>
+    <section class="panel">
+        <input id="gmaps-link" placeholder="Pega enlace Google Maps"/>
+        <button id="add-place-btn">Añadir</button>
+    </section>
+
+    <section class="panel">
+        <div id="map"></div>
+    </section>
+
+    <section class="panel">
+        <button id="optimize-btn">Optimizar</button>
+        <button id="export-btn">Exportar a Google Maps</button>
+        <ul id="place-list"></ul>
+    </section>
+</div>
 
 <script type="module" src="app.js"></script>
 </body>
